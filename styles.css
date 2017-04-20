@@ -36,6 +36,19 @@ body{
 	background-size: cover;
 }
 
+.translate{
+	top: 500px;
+	left: 500px;
+	animation: spin 2s;
+
+
+}
+
+@keyframes spin {
+	from {transform: translate(0px, 0px);}
+	to {transform: translate(100px, 100px);}
+}
+
 .photo1{
 	background-image: url("");
 }

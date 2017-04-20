@@ -57,10 +57,9 @@ function Album(array){
 	this.listPhotos = listPhotos;
 }
 
-// function addPhoto(location, tag, varName){
-// 	this.name = varName;
-// 	Photo.apply(this, arguments); when this is in the code it redirects the URL to /island
-// }
+function addPhoto(location, tag, varName){
+	this.name = varName;
+}
 
 function listPhotos(array){
 	for(i = 0; i < array.length; i++){
@@ -80,8 +79,8 @@ function url(link){
 	this.url = "url(" + link + ")";
 }
 
-// var sunriseAlbum = new Album(album1)
-// addPhoto("island", ["beach"], "sunrise");
+var sunriseAlbum = new Album(album);
+sunriseAlbum.addPhoto("island", ["beach"], "sunrise");
 var sunrise = new Photo("island", "beach");
 var sunrise2 = new Photo("island", "beach");
 var sunrise3 = new Photo("island", "beach");
@@ -100,6 +99,13 @@ for(let i = 0; i < album.length; i++){
 	var photo = window["photo" + i];
 	(photo).style.backgroundImage = album[i].url;
 }
+
+document.addEventListener("keydown", function(event){
+	if (event.keyCode === 84){
+		photo0.classList.add("translate");
+	}
+	setTimeout(function(){photo0.classList.remove("translate")}, 2000)
+})
 
 //Attempt at looping button listeners
 
@@ -127,9 +133,22 @@ for(let i = 0; i < album.length; i++){
 // Create a prototypical Person object. From this object, extend a Teacher object and a Student object. Each of these objects should have attributes and methods pertinent to what they describe. Also create a School object that should be able to store instances of students and teachers. Make sure to write code afterwards that creates instances of these objects to make sure that what you've written works well and you're able to store the necessary data in each object. Potential methods: A teacher can change the grades of a student, give detention to a student, or send a student to the principal. A student can do her or his homework, skip class, or give the teacher an apple. The school could open or close. 
 
 
+function Person(name, age){
+	this.name = name;
+	this.age = age;
+}
 
+function Teacher(name, age, isGood){
+	this.quality = isGood;
+	Person.apply(this);
+}
 
+function Student(name, age, grade){
+	this.grade = grade;
+	Person.apply(this);
+}
 
+var school = [];
 
 // Extra: Use your solution to problem 2 to create a simple one page photo gallery. This page should display all photos stored in your photo gallery object. Try your best to implement modern design trends. Then give a user the option to press a button to animate the images on the page somehow. Use CSS keyframes to make this happen.
 
