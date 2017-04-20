@@ -57,9 +57,10 @@ function Album(array){
 	this.listPhotos = listPhotos;
 }
 
-function addPhoto(location, tag, varName){
-	var varName = new Photo(location, tag);
-}
+// function addPhoto(location, tag, varName){
+// 	this.name = varName;
+// 	Photo.apply(this, arguments); when this is in the code it redirects the URL to /island
+// }
 
 function listPhotos(array){
 	for(i = 0; i < array.length; i++){
@@ -80,7 +81,7 @@ function url(link){
 }
 
 // var sunriseAlbum = new Album(album1)
-// addPhoto("island", ["beach"], "sunrise")
+// addPhoto("island", ["beach"], "sunrise");
 var sunrise = new Photo("island", "beach");
 var sunrise2 = new Photo("island", "beach");
 var sunrise3 = new Photo("island", "beach");
@@ -110,7 +111,7 @@ for(let i = 0; i < album.length; i++){
 // 	})
 // }
 
-//attempting to add listeners to filter buttons 
+//attempting to add event listeners to filter buttons 
 
 // phillySunrise.addEventListener("click", function(){
 // 	for(let i = 0; i < album.length; i++){
@@ -124,6 +125,9 @@ for(let i = 0; i < album.length; i++){
 // })
 
 // Create a prototypical Person object. From this object, extend a Teacher object and a Student object. Each of these objects should have attributes and methods pertinent to what they describe. Also create a School object that should be able to store instances of students and teachers. Make sure to write code afterwards that creates instances of these objects to make sure that what you've written works well and you're able to store the necessary data in each object. Potential methods: A teacher can change the grades of a student, give detention to a student, or send a student to the principal. A student can do her or his homework, skip class, or give the teacher an apple. The school could open or close. 
+
+
+
 
 
 
