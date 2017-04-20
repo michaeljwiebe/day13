@@ -47,7 +47,7 @@ var photo5 = document.getElementsByClassName("photo")[5];
 // var allPhotos = document.getElementsByClassName("allBtn")[0];
 // var buttons = [phillySunrise, beachSunrise, allPhotos];
 
-var album1 = [];
+var album = [];
 var philly = [];
 var beach = [];
 
@@ -72,30 +72,30 @@ function Photo(location, tag){
 	this.location = location;
 	this.tag = tag;
 	eval(tag).push(this);
-	album1.push(this);
+	album.push(this);
 }
 
 function url(link){
 	this.url = "url(" + link + ")";
 }
 
-var sunriseAlbum = new Album(album1)
+// var sunriseAlbum = new Album(album1)
 // addPhoto("island", ["beach"], "sunrise")
-var sunrise = new Photo("island", ["beach"], "sunrise");
-var sunrise2 = new Photo("island", ["beach"], "sunrise2");
-var sunrise3 = new Photo("island", ["beach"], "sunrise3");
-var sunrise6 = new Photo("philly", ["city"], "sunrise4");
-var sunrise4 = new Photo("philly", ["city"], "sunrise5");
-var sunrise5 = new Photo("philly", ["city"], "sunrise6");
+var sunrise = new Photo("island", ["beach"]);
+var sunrise2 = new Photo("island", ["beach"]);
+var sunrise3 = new Photo("island", ["beach"]);
+var sunrise6 = new Photo("philly", ["city"]);
+var sunrise4 = new Photo("philly", ["city"]);
+var sunrise5 = new Photo("philly", ["city"]);
 
-album1.sunrise.url("beach1.jpg");
+// album1.sunrise.url("beach1.jpg");
 sunrise2.url("beach2.jpg");
 sunrise3.url("beach3.jpg");
 sunrise4.url("city1.jpg");
 sunrise5.url("city2.jpg");
 sunrise6.url("city3.jpg");
 
-for(let i = 0; i < album1.length; i++){
+for(let i = 0; i < album.length; i++){
 	var photo = eval("photo" + i);
 	(photo).style.backgroundImage = album[i].url;
 }
