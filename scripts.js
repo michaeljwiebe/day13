@@ -53,14 +53,20 @@ var beach = [];
 
 function Album(array){
 	this.photos = array;
-	this.city
-	this.addPhoto = addPhoto;
+	// this.city
+	this.AddPhoto = AddPhoto;
 	this.listPhotos = listPhotos;
 }
 
-function addPhoto(location, tag, link){
-	Photo.apply(this, arguments);
-	url(link);
+function AddPhoto(location, tag, link){
+	//Photo.apply(this, arguments);
+	this.urlFunction = url;
+	this.location = location;
+	this.tag = tag;
+	window[tag].push(this);
+	album.push(this);
+	this.url = link;
+	// sunriseAlbum.photos.url(link);
 }
 
 function listPhotos(array){
@@ -69,13 +75,9 @@ function listPhotos(array){
 	}
 }
 
-function Photo(location, tag){
-	this.url = url;
-	this.location = location;
-	this.tag = tag;
-	window[tag].push(this);
-	album.push(this);
-}
+// function Photo(location, tag){
+
+// }
 
 function url(link){
 	this.url = "url(" + link + ")";
@@ -85,13 +87,13 @@ function url(link){
 //then access them through a for loop?
 
 var sunriseAlbum = new Album(album);
-sunriseAlbum.addPhoto("island", ["beach"], "beach1.jpg");
-// var sunrise = new Photo("island", "beach");
-var sunrise2 = new Photo("island", "beach");
-var sunrise3 = new Photo("island", "beach");
-var sunrise6 = new Photo("philly", "city");
-var sunrise4 = new Photo("philly", "city");
-var sunrise5 = new Photo("philly", "city");
+var island1 = sunriseAlbum.addPhoto("island", ["beach"], "beach1.jpg");
+// // var sunrise = new Photo("island", "beach");
+// sunriseAlbum.addPhoto("island", "beach","beach2.jpg");
+// sunriseAlbum.addPhoto("island", "beach","beach3.jpg");
+// sunriseAlbum.addPhoto("philly", "city","city1.jpg");
+// sunriseAlbum.addPhoto("philly", "city","city2.jpg");
+// sunriseAlbum.addPhoto("philly", "city","city3.jpg");
 
 listPhotos(sunriseAlbum.photos);
 
