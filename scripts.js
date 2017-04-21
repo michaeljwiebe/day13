@@ -50,9 +50,10 @@ var photo5 = document.getElementsByClassName("photo")[5];
 
 var album = [];
 
-function Album(array){
-	this.photos = array;
-	this.Photo = Photo;
+function Album(album){
+	this.albumName = album;
+	this.photos = [];
+	this.addPhoto = addPhoto;
 	this.listPhotos = listPhotos;
 }
 
@@ -67,12 +68,19 @@ function listPhotos(array){
 	}
 }
 
-function Photo(location, tag){
+function Photo(location, tag, fileLocation){
 	this.url = url;
+	this.fileLocation = fileLocation;
 	this.location = location;
 	this.tag = tag;
-	window[tag].push(this);
+	this.photo
+
+	// window[tag].push(this);
 	album.push(this);
+}
+
+function addPhoto(photo){
+	this.photos.push(photo);
 }
 
 function url(link){
@@ -82,23 +90,30 @@ function url(link){
 //do I not give a variable name to photos that I put directly into the album array?
 //then access them through a for loop?
 
-var sunriseAlbum = new Album(album);
+var sunriseAlbum = new Album();
 // sunriseAlbum.addPhoto("island", ["beach"], "beach1.jpg");
-var sunrise = new sunriseAlbum.Photo("island", "beach");
-var sunrise2 = new Photo("island", "beach");
-var sunrise3 = new Photo("island", "beach");
-var sunrise6 = new Photo("philly", "city");
-var sunrise4 = new Photo("philly", "city");
-var sunrise5 = new Photo("philly", "city");
+var sunrise1 = new Photo("island", "beach", "beach1.jpg");
+var sunrise2 = new Photo("island", "beach","beach2.jpg");
+var sunrise3 = new Photo("island", "beach","beach3.jpg");
+var sunrise6 = new Photo("philly", "city", "city1.jpg");
+var sunrise4 = new Photo("philly", "city", "city2.jpg");
+var sunrise5 = new Photo("philly", "city", "city3.jpg");
+
+sunriseAlbum.addPhoto(sunrise1);
+sunriseAlbum.addPhoto(sunrise2);
+sunriseAlbum.addPhoto(sunrise3);
+sunriseAlbum.addPhoto(sunrise4);
+sunriseAlbum.addPhoto(sunrise5);
+sunriseAlbum.addPhoto(sunrise6);
 
 listPhotos(sunriseAlbum.photos);
 
-sunrise.url("beach1.jpg");
-sunrise2.url("beach2.jpg");
-sunrise3.url("beach3.jpg");
-sunrise4.url("city1.jpg");
-sunrise5.url("city2.jpg");
-sunrise6.url("city3.jpg");
+// sunrise.url("beach1.jpg");
+// sunrise2.url("beach2.jpg");
+// sunrise3.url("beach3.jpg");
+// sunrise4.url("city1.jpg");
+// sunrise5.url("city2.jpg");
+// sunrise6.url("city3.jpg");
 
 for(let i = 0; i < album.length; i++){
 	var photo = window["photo" + i];
