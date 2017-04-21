@@ -42,26 +42,24 @@ var photo2 = document.getElementsByClassName("photo")[2];
 var photo3 = document.getElementsByClassName("photo")[3];
 var photo4 = document.getElementsByClassName("photo")[4];
 var photo5 = document.getElementsByClassName("photo")[5];
+
 // var phillySunrise = document.getElementsByClassName("cityBtn")[0];
 // var beachSunrise = document.getElementsByClassName("beachBtn")[0];
 // var allPhotos = document.getElementsByClassName("allBtn")[0];
 // var buttons = [phillySunrise, beachSunrise, allPhotos];
 
 var album = [];
-var city = [];
-var beach = [];
 
 function Album(array){
 	this.photos = array;
-	this.city
-	this.addPhoto = addPhoto;
+	this.Photo = Photo;
 	this.listPhotos = listPhotos;
 }
 
-function addPhoto(location, tag, link){
-	Photo.apply(this, arguments);
-	url(link);
-}
+// function addPhoto(location, tag, link){
+// 	Photo.apply(this, arguments);
+// 	url(link);
+// }
 
 function listPhotos(array){
 	for(i = 0; i < array.length; i++){
@@ -86,7 +84,7 @@ function url(link){
 
 var sunriseAlbum = new Album(album);
 // sunriseAlbum.addPhoto("island", ["beach"], "beach1.jpg");
-var sunrise = new Photo("island", "beach");
+var sunrise = new sunriseAlbum.Photo("island", "beach");
 var sunrise2 = new Photo("island", "beach");
 var sunrise3 = new Photo("island", "beach");
 var sunrise6 = new Photo("philly", "city");
