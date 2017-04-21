@@ -53,20 +53,14 @@ var beach = [];
 
 function Album(array){
 	this.photos = array;
-	// this.city
-	this.AddPhoto = AddPhoto;
+	this.city
+	this.addPhoto = addPhoto;
 	this.listPhotos = listPhotos;
 }
 
-function AddPhoto(location, tag, link){
-	//Photo.apply(this, arguments);
-	this.urlFunction = url;
-	this.location = location;
-	this.tag = tag;
-	window[tag].push(this);
-	album.push(this);
-	this.url = link;
-	// sunriseAlbum.photos.url(link);
+function addPhoto(location, tag, link){
+	Photo.apply(this, arguments);
+	url(link);
 }
 
 function listPhotos(array){
@@ -75,9 +69,13 @@ function listPhotos(array){
 	}
 }
 
-// function Photo(location, tag){
-
-// }
+function Photo(location, tag){
+	this.url = url;
+	this.location = location;
+	this.tag = tag;
+	window[tag].push(this);
+	album.push(this);
+}
 
 function url(link){
 	this.url = "url(" + link + ")";
@@ -87,22 +85,22 @@ function url(link){
 //then access them through a for loop?
 
 var sunriseAlbum = new Album(album);
-var island1 = sunriseAlbum.addPhoto("island", ["beach"], "beach1.jpg");
-// // var sunrise = new Photo("island", "beach");
-// sunriseAlbum.addPhoto("island", "beach","beach2.jpg");
-// sunriseAlbum.addPhoto("island", "beach","beach3.jpg");
-// sunriseAlbum.addPhoto("philly", "city","city1.jpg");
-// sunriseAlbum.addPhoto("philly", "city","city2.jpg");
-// sunriseAlbum.addPhoto("philly", "city","city3.jpg");
+// sunriseAlbum.addPhoto("island", ["beach"], "beach1.jpg");
+var sunrise = new Photo("island", "beach");
+var sunrise2 = new Photo("island", "beach");
+var sunrise3 = new Photo("island", "beach");
+var sunrise6 = new Photo("philly", "city");
+var sunrise4 = new Photo("philly", "city");
+var sunrise5 = new Photo("philly", "city");
 
 listPhotos(sunriseAlbum.photos);
 
-// sunrise.url("beach1.jpg");
-// sunrise2.url("beach2.jpg");
-// sunrise3.url("beach3.jpg");
-// sunrise4.url("city1.jpg");
-// sunrise5.url("city2.jpg");
-// sunrise6.url("city3.jpg");
+sunrise.url("beach1.jpg");
+sunrise2.url("beach2.jpg");
+sunrise3.url("beach3.jpg");
+sunrise4.url("city1.jpg");
+sunrise5.url("city2.jpg");
+sunrise6.url("city3.jpg");
 
 for(let i = 0; i < album.length; i++){
 	var photo = window["photo" + i];
