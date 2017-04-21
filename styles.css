@@ -37,16 +37,31 @@ body{
 }
 
 .translate{
-	top: 500px;
-	left: 500px;
-	animation: spin 2s;
-
+	animation: spin 2s;/*
+	transform: rotateY(180deg);
+	width: 800px;
+	height: 800px;*/
 
 }
 
 @keyframes spin {
-	from {transform: translate(0px, 0px);}
-	to {transform: translate(100px, 100px);}
+	0% {
+		position: relative;
+		transform: rotateY(0deg);
+		width: 400px;
+		height: 400px;
+	}
+	50% {
+		transform: rotateY(180deg);
+		width: 800px;
+		height: 800px;
+	}
+	100%{
+		position: relative;
+		transform: rotateY(0deg);
+		width: 400px;
+		height: 400px;
+	}
 }
 
 .photo1{

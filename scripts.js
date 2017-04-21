@@ -53,12 +53,14 @@ var beach = [];
 
 function Album(array){
 	this.photos = array;
+	this.city
 	this.addPhoto = addPhoto;
 	this.listPhotos = listPhotos;
 }
 
-function addPhoto(location, tag, varName){
-	this.name = varName;
+function addPhoto(location, tag, link){
+	Photo.apply(this, arguments);
+	url(link);
 }
 
 function listPhotos(array){
@@ -79,21 +81,26 @@ function url(link){
 	this.url = "url(" + link + ")";
 }
 
+//do I not give a variable name to photos that I put directly into the album array?
+//then access them through a for loop?
+
 var sunriseAlbum = new Album(album);
-sunriseAlbum.addPhoto("island", ["beach"], "sunrise");
-var sunrise = new Photo("island", "beach");
+sunriseAlbum.addPhoto("island", ["beach"], "beach1.jpg");
+// var sunrise = new Photo("island", "beach");
 var sunrise2 = new Photo("island", "beach");
 var sunrise3 = new Photo("island", "beach");
 var sunrise6 = new Photo("philly", "city");
 var sunrise4 = new Photo("philly", "city");
 var sunrise5 = new Photo("philly", "city");
 
-sunrise.url("beach1.jpg");
-sunrise2.url("beach2.jpg");
-sunrise3.url("beach3.jpg");
-sunrise4.url("city1.jpg");
-sunrise5.url("city2.jpg");
-sunrise6.url("city3.jpg");
+listPhotos(sunriseAlbum.photos);
+
+// sunrise.url("beach1.jpg");
+// sunrise2.url("beach2.jpg");
+// sunrise3.url("beach3.jpg");
+// sunrise4.url("city1.jpg");
+// sunrise5.url("city2.jpg");
+// sunrise6.url("city3.jpg");
 
 for(let i = 0; i < album.length; i++){
 	var photo = window["photo" + i];
@@ -101,7 +108,7 @@ for(let i = 0; i < album.length; i++){
 }
 
 document.addEventListener("keydown", function(event){
-	if (event.keyCode === 84){
+	if (event.keyCode > 50){
 		photo0.classList.add("translate");
 	}
 	setTimeout(function(){photo0.classList.remove("translate")}, 2000)
@@ -132,23 +139,66 @@ document.addEventListener("keydown", function(event){
 
 // Create a prototypical Person object. From this object, extend a Teacher object and a Student object. Each of these objects should have attributes and methods pertinent to what they describe. Also create a School object that should be able to store instances of students and teachers. Make sure to write code afterwards that creates instances of these objects to make sure that what you've written works well and you're able to store the necessary data in each object. Potential methods: A teacher can change the grades of a student, give detention to a student, or send a student to the principal. A student can do her or his homework, skip class, or give the teacher an apple. The school could open or close. 
 
+var school = [];
+var teachers = [];
+var students = [];
+var teach = new Teacher("Teach", 50, "decent");
+var teach2 = new Teacher("Teach", 50, "good");
+var kid = new Student("Johan", 2, 90);
+var kid2 = new Student("Emma", 2, 60);
+var kid3 = new Student("Alice", 2, -80);
+var newSchool = new School(students, teachers);
 
 function Person(name, age){
 	this.name = name;
 	this.age = age;
+	school.push(this, arguments);
 }
 
 function Teacher(name, age, isGood){
 	this.quality = isGood;
-	Person.apply(this);
+	this.changeGrade = changeGrade;
+	teachers = [];
+	Person.apply(this, arguments);
 }
 
 function Student(name, age, grade){
 	this.grade = grade;
-	Person.apply(this);
+	this.doHomework = doHomework;
+	this.skipClass = skipClass;
+	students.push(this);
+	Person.apply(this, arguments);
 }
 
-var school = [];
+function School(students, teachers){
+	this.students = students;
+	this.teachers = teachers;
+	this.status = changeStatus;
+}
+
+function changeGrade(varName, gradeTo){
+	students[students.indexOf(varName)].grade = gradeTo;
+}
+
+function doHomework(){
+	this.grade += 5;
+}
+
+function skipClass(){
+	this.grade -= 5;
+}
+
+function changeStatus(newStatus){
+	this.status = newStatus;
+}
+
+newSchool.status("closed");
+teach.changeGrade(kid2, 100);
+kid.doHomework()
+kid3.skipClass()
+
+
+
 
 // Extra: Use your solution to problem 2 to create a simple one page photo gallery. This page should display all photos stored in your photo gallery object. Try your best to implement modern design trends. Then give a user the option to press a button to animate the images on the page somehow. Use CSS keyframes to make this happen.
 
